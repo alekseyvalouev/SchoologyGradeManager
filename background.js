@@ -39,11 +39,18 @@ function readPage() {
 
     }
 }
-chrome.action.onClicked.addListener(tab => {
+
+chrome.tabs.onActivated.addListener(function(activeInfo) {
+    handleBrowserActionClicked();
+});
+
+async function handleBrowserActionClicked() {
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
         function: readPage,
     });
-});
-//let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+}
+
 

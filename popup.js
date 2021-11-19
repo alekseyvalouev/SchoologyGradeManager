@@ -164,7 +164,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
                 gpaNoWeight = newValue;
             }
     }
-    if (courses.length != 0) {
+    if (courses.length > 0) {
         let resString = "";
         for (let i = 0; i < courses.length; i++) {
             resString+=("Course: " + courses[i] + "\n");
