@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="tabstyle.css">
+    Schoology GPA Calculator
+  </head>
+  <body>
+    <div id="main_content">
+        <div class="tab">
+            <button class="tablinks" id="info">Info</button>
+            <button class="tablinks" id="menu">Menu</button>
+            <button class="tablinks" id="grades">Grades</button>
+            <button class="tablinks" id="gpa">GPA</button>
+        </div>
+
+        <div class="tabcontent" id="info_content">
+            <h2>
+                Info
+            </h2>
+            <div>
+                Click on the menu tab to navigate.
+                Click on the grades tab to view grades.
+                Click on the GPA tab to view GPA.
+            </div>
+        </div>
+        
+        <div class='tabcontent' id="menu_content">
+         <h2>Menu</h2>
+         <h3>
+            Navigate to your grades page on Schoology to fetch your grades.
+            Press the "Get Grades" button to get your grades and calculate your GPA.
+         </h3>
+         <button id="getgrades">Get Grades</button>
+         <button id="resetbtn">Reset</button>
+        </div>
+       
+        <div class='tabcontent' id="grades_content">
+         <h2>Grades</h2>
+         <div id="gradesummary"></div>
+        </div>
+        
+        <div class='tabcontent' id="gpa_content">
+         <h2>GPA</h2>
+            <div id="unweighted"></div>
+            <button id="gpacalculator">Calculate</button>
+        </div>
+        
+    </div>
+    <script src="tabmanager.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
