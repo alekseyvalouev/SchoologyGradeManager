@@ -151,8 +151,8 @@ function calculateGPA() {
 
 chrome.storage.onChanged.addListener(function (changes, namespace) {
 
-    var courses = [];
-    var grades = [];
+    var courses;
+    var grades;
     let gpaNoWeight;
 
     for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
@@ -164,7 +164,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
                 gpaNoWeight = newValue;
             }
     }
-    if (courses.length > 0) {
+    if (courses != undefined) {
         let resString = "";
         for (let i = 0; i < courses.length; i++) {
             resString+=("Course: " + courses[i] + "\n");

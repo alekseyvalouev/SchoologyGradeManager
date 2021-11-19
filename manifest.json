@@ -1,6 +1,6 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
+    "name": "Schoology Grade Manager",
+    "description": "An easier way to manage your grades, with a built in GPA calculator!",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
