@@ -169,10 +169,10 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (let i = 0; i < courses.length; i++) {
             resString+=("Course: " + courses[i] + "\n");
             for (let j = 0; j < grades[i].length; j++) {
-                resString+=("Grading Period " + String(j+1) + ": " + grades[i][j] + "\n");
+                resString+=("<li><b>Grading Period " + String(j+1) + ": " + grades[i][j] + "</b></li>\n");
             }
         }
-        document.getElementById("gradesummary").innerText = resString;
+        document.getElementById("gradesummary").innerHTML = resString;
     }
 
     if (gpaNoWeight != undefined) {
@@ -191,14 +191,14 @@ chrome.storage.sync.get(['classGrades', 'classes', 'gpaNoWeight'], function(resu
     let resString = "";
     for (let i = 0; i < courses.length; i++) {
         if (grades[i].length > 0) {
-            resString+=("Course: " + courses[i] + "\n");
+            resString+=("<b>Course: " + courses[i] + "</b>\n");
             for (let j = 0; j < grades[i].length; j++) {
-                resString+=("Grading Period " + String(j+1) + ": " + grades[i][j] + "\n");
+                resString+=("<li>Grading Period " + String(j+1) + ": " + grades[i][j] + "</li>\n");
             }
         }
     }
-
-    document.getElementById("gradesummary").innerText = resString;
+    document.getElementById("gradesummary").innerHTML = resString;
+    
     if (result.gpaNoWeight != null) {
         unweightedGpa = result.gpaNoWeight;
         document.getElementById("unweighted").innerText = "Unweighted: " + unweightedGpa;
