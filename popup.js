@@ -48,103 +48,115 @@ function calculateGPA() {
         let gpaTotal = 0;
         let courseTotal = 0;
 
-        let letterGrades = ['A', 'B', 'C', 'D', 'F'];
-
-        //let gradeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+        let gpaArray = [];
+        let courseTotalArray = [];
     
         for (let i = 0; i < courses.length; i++) {
             let found = false;
             if (grades[i].length > 0) {
-                if (grades[i][0].includes("A+")) {
-                    gpaTotal+=4;
-                    found = true;
-                } else if (grades[i][0].includes("A") && !grades[i][0].includes("A-")) {
-                    gpaTotal+=4;
-                    found = true;
-                } else if (grades[i][0].includes("A-")) {
-                    gpaTotal+=3.7;
-                    found = true;
-                } else if (grades[i][0].includes("B+")) {
-                    gpaTotal+=3.3;
-                    found = true;
-                } else if (grades[i][0].includes("B") && !grades[i][0].includes("B-")) {
-                    gpaTotal+=3.0;
-                    found = true;
-                } else if (grades[i][0].includes("B-")) {
-                    gpaTotal+=2.7;
-                    found = true;
-                } else if (grades[i][0].includes("C+")) {
-                    gpaTotal+=2.3;
-                    found = true;
-                } else if (grades[i][0].includes("C") && !grades[i][0].includes("C-")) {
-                    gpaTotal+=2.0;
-                    found = true;
-                } else if (grades[i][0].includes("C")) {
-                    gpaTotal+=1.7;
-                    found = true;
-                } else if (grades[i][0].includes("D+")) {
-                    gpaTotal+=1.3;
-                    found = true;
-                } else if (grades[i][0].includes("D") && !grades[i][0].includes("D-")) {
-                    gpaTotal+=1.0;
-                    found = true;
-                } else if (grades[i][0].includes("D-")) {
-                    gpaTotal+=0.7;
-                    found = true;
-                } else if (grades[i][0].includes("F")) {
-                    found = true;
-                }
-                if (!found) {
-                    if (grades[i][0].indexOf("%") != -1) {
-                        let resString = parseFloat(grades[i][0]);
-                        
-                        if (resString >= 92) {
-                            gpaTotal+=4;
-                            found = true;
-                        } else if (resString >= 90) {
-                            gpaTotal+=3.7;
-                            found = true;
-                        } else if (resString >= 87) {
-                            gpaTotal+=3.3;
-                            found = true;
-                        } else if (resString >= 83) {
-                            gpaTotal+=3.0;
-                            found = true;
-                        } else if (resString >= 80) {
-                            gpaTotal+=2.7;
-                            found = true;
-                        } else if (resString >= 77) {
-                            gpaTotal+=2.3;
-                            found = true;
-                        } else if (resString >= 73) {
-                            gpaTotal+=2.0;
-                            found = true;
-                        } else if (resString >= 70) {
-                            gpaTotal+=1.7;
-                            found = true;
-                        } else if (resString >= 67) {
-                            gpaTotal+=1.3;
-                            found = true;
-                        } else if (resString >= 63) {
-                            gpaTotal+=1.0;
-                            found = true;
-                        } else if (resString >= 60) {
-                            gpaTotal+=0.7;
-                            found = true;
-                        } else {
-                            found = true;
-                        }
-                    } else {
-                        alert("An error occurred calculating your GPA, result may not be accurate.");
-                        alert(grades[i][0]);
+                for (let j = 0; j < grades[i].length; j++) {
+                    if (grades[i][j].includes("A+")) {
+                        gpaTotal+=4;
+                        found = true;
+                    } else if (grades[i][j].includes("A") && !grades[i][j].includes("A-")) {
+                        gpaTotal+=4;
+                        found = true;
+                    } else if (grades[i][j].includes("A-")) {
+                        gpaTotal+=3.7;
+                        found = true;
+                    } else if (grades[i][j].includes("B+")) {
+                        gpaTotal+=3.3;
+                        found = true;
+                    } else if (grades[i][j].includes("B") && !grades[i][j].includes("B-")) {
+                        gpaTotal+=3.0;
+                        found = true;
+                    } else if (grades[i][j].includes("B-")) {
+                        gpaTotal+=2.7;
+                        found = true;
+                    } else if (grades[i][j].includes("C+")) {
+                        gpaTotal+=2.3;
+                        found = true;
+                    } else if (grades[i][j].includes("C") && !grades[i][j].includes("C-")) {
+                        gpaTotal+=2.0;
+                        found = true;
+                    } else if (grades[i][j].includes("C")) {
+                        gpaTotal+=1.7;
+                        found = true;
+                    } else if (grades[i][j].includes("D+")) {
+                        gpaTotal+=1.3;
+                        found = true;
+                    } else if (grades[i][j].includes("D") && !grades[i][j].includes("D-")) {
+                        gpaTotal+=1.0;
+                        found = true;
+                    } else if (grades[i][j].includes("D-")) {
+                        gpaTotal+=0.7;
+                        found = true;
+                    } else if (grades[i][j].includes("F")) {
+                        found = true;
                     }
-                }
-                if (found) {
-                    courseTotal+=1;
+                    if (!found) {
+                        if (grades[i][j].indexOf("%") != -1) {
+                            let resString = parseFloat(grades[i][j]);
+                            
+                            if (resString >= 92) {
+                                gpaTotal+=4;
+                                found = true;
+                            } else if (resString >= 90) {
+                                gpaTotal+=3.7;
+                                found = true;
+                            } else if (resString >= 87) {
+                                gpaTotal+=3.3;
+                                found = true;
+                            } else if (resString >= 83) {
+                                gpaTotal+=3.0;
+                                found = true;
+                            } else if (resString >= 80) {
+                                gpaTotal+=2.7;
+                                found = true;
+                            } else if (resString >= 77) {
+                                gpaTotal+=2.3;
+                                found = true;
+                            } else if (resString >= 73) {
+                                gpaTotal+=2.0;
+                                found = true;
+                            } else if (resString >= 70) {
+                                gpaTotal+=1.7;
+                                found = true;
+                            } else if (resString >= 67) {
+                                gpaTotal+=1.3;
+                                found = true;
+                            } else if (resString >= 63) {
+                                gpaTotal+=1.0;
+                                found = true;
+                            } else if (resString >= 60) {
+                                gpaTotal+=0.7;
+                                found = true;
+                            } else {
+                                found = true;
+                            }
+                        } else {
+                            alert("An error occurred calculating your GPA, result may not be accurate.");
+                            alert(grades[i][0]);
+                        }
+                    }
+                    if (found) {
+                        if (typeof gpaArray[j] == 'undefined') {
+                            gpaArray[j]=gpaTotal;
+                            courseTotalArray[j]=1;
+                        } else {
+                            gpaArray[j]+=gpaTotal;
+                            courseTotalArray[j]+=1;
+                        }
+                        gpaTotal=0;
+                    }
                 }
             }
         }
-        chrome.storage.sync.set({"gpaNoWeight" : String(Math.round((gpaTotal/courseTotal) * 10) / 10)});
+        let finalArr = [];
+        for (let i = 0; i < gpaArray.length; i++) {
+            finalArr[i] =  String(Math.round((gpaArray[i]/courseTotalArray[i]) * 10) / 10)
+        }
+        chrome.storage.sync.set({"gpaNoWeight" : finalArr});
     
     });
 }
@@ -169,20 +181,24 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
         for (let i = 0; i < courses.length; i++) {
             resString+=("Course: " + courses[i] + "\n");
             for (let j = 0; j < grades[i].length; j++) {
-                resString+=("<li><b>Grading Period " + String(j+1) + ": " + grades[i][j] + "</b></li>\n");
+                resString+=("<li>Grading Period " + String(j+1) + ": " + grades[i][j] + "</li>\n");
             }
         }
         document.getElementById("gradesummary").innerHTML = resString;
     }
 
     if (gpaNoWeight != undefined) {
-        document.getElementById("unweighted").innerText = "Unweighted: " + gpaNoWeight;
+        let finalStr = "";
+        for (let i = 0; i < gpaNoWeight.length; i++) {
+            finalStr+="<li>Grading Period " + String(i+1) + " Unweighted: " + gpaNoWeight[i] + "</li>\n";
+        }
+        document.getElementById("unweighted").innerHTML = finalStr;
     }
 });
 
 let courses = [];
 let grades = [];
-let unweightedGpa;
+let unweightedGpa = [];
 
 chrome.storage.sync.get(['classGrades', 'classes', 'gpaNoWeight'], function(result) {
     Object.assign(grades, result.classGrades);
@@ -200,8 +216,12 @@ chrome.storage.sync.get(['classGrades', 'classes', 'gpaNoWeight'], function(resu
     document.getElementById("gradesummary").innerHTML = resString;
     
     if (result.gpaNoWeight != null) {
-        unweightedGpa = result.gpaNoWeight;
-        document.getElementById("unweighted").innerText = "Unweighted: " + unweightedGpa;
+        Object.assign(unweightedGpa, result.gpaNoWeight);
+        let finalStr = "";
+        for (let i = 0; i < unweightedGpa.length; i++) {
+            finalStr+="<li>Grading Period " + String(i+1) + " Unweighted: " + unweightedGpa[i] + "</li>\n";
+        }
+        document.getElementById("unweighted").innerHTML = finalStr;
     }
 
 });
