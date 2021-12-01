@@ -1,7 +1,7 @@
 {
     "name": "Schoology Grade Manager",
     "description": "An easier way to manage your grades, with a built in GPA calculator!",
-    "version": "1.1",
+    "version": "1.11",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
