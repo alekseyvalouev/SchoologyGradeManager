@@ -95,9 +95,11 @@ function calculateGPA() {
                         found = true;
                     }
                     if (!found) {
+                        let resString = parseFloat(grades[i][j]);
                         if (grades[i][j].indexOf("%") != -1) {
-                            let resString = parseFloat(grades[i][j]);
-                            
+                            if (resString <= 4) {
+                                resString = resString*20
+                            }
                             if (resString >= 92) {
                                 gpaTotal+=4;
                                 found = true;
@@ -135,8 +137,47 @@ function calculateGPA() {
                                 found = true;
                             }
                         } else {
-                            alert("An error occurred calculating your GPA, result may not be accurate.");
-                            alert(grades[i][0]);
+                            if (resString <= 4) {
+                                resString = resString*20
+                            }
+                            if (resString >= 92) {
+                                gpaTotal+=4;
+                                found = true;
+                            } else if (resString >= 90) {
+                                gpaTotal+=3.7;
+                                found = true;
+                            } else if (resString >= 87) {
+                                gpaTotal+=3.3;
+                                found = true;
+                            } else if (resString >= 83) {
+                                gpaTotal+=3.0;
+                                found = true;
+                            } else if (resString >= 80) {
+                                gpaTotal+=2.7;
+                                found = true;
+                            } else if (resString >= 77) {
+                                gpaTotal+=2.3;
+                                found = true;
+                            } else if (resString >= 73) {
+                                gpaTotal+=2.0;
+                                found = true;
+                            } else if (resString >= 70) {
+                                gpaTotal+=1.7;
+                                found = true;
+                            } else if (resString >= 67) {
+                                gpaTotal+=1.3;
+                                found = true;
+                            } else if (resString >= 63) {
+                                gpaTotal+=1.0;
+                                found = true;
+                            } else if (resString >= 60) {
+                                gpaTotal+=0.7;
+                                found = true;
+                            } else {
+                                found = true;
+                            }
+                            //alert("An error occurred calculating your GPA, result may not be accurate.");
+                            //alert(grades[i][0]);
                         }
                     }
                     if (found) {
