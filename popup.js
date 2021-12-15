@@ -97,9 +97,6 @@ function calculateGPA() {
                     if (!found) {
                         let resString = parseFloat(grades[i][j]);
                         if (grades[i][j].indexOf("%") != -1) {
-                            if (resString <= 4) {
-                                resString = resString*25
-                            }
                             if (resString >= 92) {
                                 gpaTotal+=4;
                                 found = true;
@@ -138,7 +135,7 @@ function calculateGPA() {
                             }
                         } else {
                             if (resString <= 4) {
-                                resString = resString*20
+                                resString = resString*25
                             }
                             if (resString >= 92) {
                                 gpaTotal+=4;
